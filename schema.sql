@@ -47,3 +47,19 @@ CREATE TABLE visits (
 	animals_id INTEGER REFERENCES animals(id) ON DELETE CASCADE,
 	date_of_visit DATE
 );
+
+/* day 1, week 2 */
+
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+
+/* change COLUMN NAMEs of VISITS Table ------ animals_id to animal_id and vets_id to vet_id */
+
+ALTER TABLE visits RENAME COLUMN animals_id TO animal_id;
+ALTER TABLE visits RENAME COLUMN vets_id TO vet_id;
+
+
+CREATE index ON visits(animal_id);
+
+CREATE index ON visits(vet_id);
+
+CREATE index ON owners(email);
